@@ -5,8 +5,6 @@ import { publicProvider } from 'wagmi/providers/public'
 
 const walletConnectProjectId = import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID
 
-console.log({ walletConnectProjectId })
-
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet, ...(import.meta.env?.MODE === 'development' ? [goerli] : [])],
   [
