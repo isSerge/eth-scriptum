@@ -8,15 +8,17 @@ export function CheckInscription() {
   const [details, setDetails] = useState<CheckAvailabilityResponse | null>(
     null
   );
+  const [error, setError] = useState<string>('');
 
   const handleCheck = async () => {
     setIsLoading(true);
+    setError('');
+    setDetails(null);
     try {
       const response = await checkAvailability(input);
-      console.log('Response:', response);
       setDetails(response);
     } catch (error) {
-      // TODO: Handle error
+      setError('Failed to check inscription. Please try again.');
       console.error('Error checking inscription:', error);
     } finally {
       setIsLoading(false);
@@ -45,6 +47,7 @@ export function CheckInscription() {
           {isLoading ? 'Checking...' : 'Check Availability'}
         </button>
       </div>
+      {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
       {details && (
         <div className="p-4 mt-4 bg-white rounded-md shadow">
           <p
@@ -61,7 +64,7 @@ export function CheckInscription() {
               <p className="mt-2">
                 Owner:&nbsp;
                 <a
-                  href={`https://etherscan.io/${details.ethscription.current_owner}`}
+                  href={`https://ethscriptions.com/${details.ethscription.current_owner}`}
                   target="_blank"
                   rel="noreferrer"
                   className="text-blue-500 hover:text-blue-700"
@@ -72,7 +75,7 @@ export function CheckInscription() {
               <p className="mt-2">
                 Transaction hash:&nbsp;
                 <a
-                  href={`https://etherscan.io/tx/${details.ethscription.transaction_hash}`}
+                  href={`https://ethscriptions.com/ethscriptions/${details.ethscription.transaction_hash}`}
                   target="_blank"
                   rel="noreferrer"
                   className="text-blue-500 hover:text-blue-700"
