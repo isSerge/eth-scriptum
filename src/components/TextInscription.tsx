@@ -123,7 +123,6 @@ export function TextInscription() {
             {isSuccess && (
               <div className="mt-4 p-4 bg-green-100 border border-green-400 rounded-md text-green-700">
                 <p>Your inscription was successfully created!</p>
-                {/* <div className="flex flex-col sm:flex-row gap-2 mt-2"> */}
                 <a
                   href={`https://etherscan.io/tx/${data?.hash}`}
                   className="text-blue-500 hover:text-blue-600 underline"
@@ -141,7 +140,6 @@ export function TextInscription() {
                 >
                   View on Ethscriptions
                 </a>
-                {/* </div> */}
               </div>
             )}
             {isError && (
