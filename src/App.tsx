@@ -1,15 +1,15 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { CheckInscription } from './CheckInscription';
-import { TextInscription } from './TextInscription';
-import { Tabs, Tab } from './Tabs';
+import {
+  Header,
+  CheckInscription,
+  TextInscription,
+  Tabs,
+  Tab,
+} from './components';
 
 export function App() {
   return (
     <div className="min-h-screen bg-gray-100">
-      <header className="flex justify-between p-4">
-        <h1 className="text-4xl font-bold text-gray-800">EthScriptum</h1>
-        <ConnectButton />
-      </header>
+      <Header />
       <Tabs>
         <Tab label="Check availability">
           <CheckInscription />

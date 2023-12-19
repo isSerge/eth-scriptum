@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { checkAvailability, shortString } from './utils';
-import { CheckAvailabilityResponse } from './types';
+import { checkAvailability, shortString } from '../utils';
+import { CheckAvailabilityResponse } from '../types';
 
 export function CheckInscription() {
   const [input, setInput] = useState('');

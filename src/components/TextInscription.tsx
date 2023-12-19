@@ -5,7 +5,7 @@ import {
   useAccount,
 } from 'wagmi';
 import { ChangeEvent, useCallback, useState } from 'react';
-import { stringToHex } from './utils';
+import { stringToHex } from '../utils';
 import { CopyIcon } from './Icons';
 
 const prefix = 'data:,';
