@@ -26,3 +26,7 @@ export async function checkAvailability(dataUri: string): Promise<CheckAvailabil
 export function shortString(value: string, initialLength = 6, endLength = -4): string {
   return `${value.slice(0, initialLength)}...${value.slice(endLength)}`
 }
+
+export function stringToHex(str: string) {
+  return str.split('').map(c => c.charCodeAt(0).toString(16)).join('');
+}
