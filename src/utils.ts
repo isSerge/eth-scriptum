@@ -1,3 +1,5 @@
+import { CheckAvailabilityResponse } from './types';
+
 const apiUrl = 'https://api.ethscriptions.com/api/';
 
 export async function sha256(message: string) {
@@ -11,12 +13,16 @@ export async function sha256(message: string) {
   return hashHex;
 }
 
-export async function checkAvailability(data: string) {
-  const hash = sha256(data);
+export async function checkAvailability(dataUri: string): Promise<CheckAvailabilityResponse> {
+  const hash = await sha256(`data:,${dataUri}`);
   return fetch(apiUrl + 'ethscriptions/exists/' + hash)
     .then(response => response.json())
-    .then(data => ({
-      isTaken: data.result,
-      ownerAddress: data.ethscription?.current_owner || null,
+    .then(({ result, ethscription }) => ({
+      isTaken: result,
+      ethscription,
     }));
+}
+
+export function shortString(value: string, initialLength = 6, endLength = -4): string {
+  return `${value.slice(0, initialLength)}...${value.slice(endLength)}`
 }

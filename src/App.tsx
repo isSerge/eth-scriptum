@@ -1,5 +1,6 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 // import { useAccount } from 'wagmi';
+import { CheckInscription } from './CheckInscription';
 
 export function App() {
   // const { isConnected } = useAccount();
@@ -10,6 +11,7 @@ export function App() {
         <h1 className="text-4xl font-bold text-gray-800">EthScriptum</h1>
         <ConnectButton />
       </header>
+      <CheckInscription />
     </div>
   );
 }
