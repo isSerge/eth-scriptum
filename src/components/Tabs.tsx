@@ -16,7 +16,7 @@ export const Tabs: React.FC<TabsProps> = ({ children }) => {
 
   return (
     <div className="p-4">
-      <div className="flex border-b">
+      <div className="flex border-b justify-center">
         {children.map((child, index) => (
           <button
             key={child.props.label}
@@ -31,7 +31,7 @@ export const Tabs: React.FC<TabsProps> = ({ children }) => {
           </button>
         ))}
       </div>
-      <div className="p-4">{children[activeTab]}</div>
+      <div className="p-4 flex justify-center">{children[activeTab]}</div>
     </div>
   );
 };
