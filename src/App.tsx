@@ -1,40 +1,15 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { useAccount } from 'wagmi';
-
-import { Account } from './components/Account';
-import { Balance } from './components/Balance';
-import { BlockNumber } from './components/BlockNumber';
-import { NetworkSwitcher } from './components/NetworkSwitcher';
+// import { useAccount } from 'wagmi';
 
 export function App() {
-  const { isConnected } = useAccount();
+  // const { isConnected } = useAccount();
 
   return (
-    <>
-      <h1>EthScriptum</h1>
-
-      <ConnectButton />
-
-      {isConnected && (
-        <>
-          <hr />
-          <h2>Network</h2>
-          <NetworkSwitcher />
-          <br />
-          <hr />
-          <h2>Account</h2>
-          <Account />
-          <br />
-          <hr />
-          <h2>Balance</h2>
-          <Balance />
-          <br />
-          <hr />
-          <h2>Block Number</h2>
-          <BlockNumber />
-          <br />
-        </>
-      )}
-    </>
+    <div className="min-h-screen bg-gray-100">
+      <header className="flex justify-between p-4">
+        <h1 className="text-4xl font-bold text-gray-800">EthScriptum</h1>
+        <ConnectButton />
+      </header>
+    </div>
   );
 }
